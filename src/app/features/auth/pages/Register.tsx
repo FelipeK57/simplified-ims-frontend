@@ -34,7 +34,7 @@ export const Register = () => {
 
   return (
     <main className="flex flex-col h-svh w-full">
-      <article className="w-full h-16 border-b border-neutral-200 flex justify-center items-center px-4">
+      <article className="w-full h-16 border-b border-neutral-200 dark:border-neutral-700 flex justify-center items-center px-4">
         Sistema de gestión de inventario
       </article>
       <section className="flex flex-col gap-4 items-center justify-center flex-1">
@@ -73,7 +73,7 @@ export const Register = () => {
               <button
                 onClick={() => setShowPassword(!showPassword)}
                 type="button"
-                className="text-xs text-neutral-600 cursor-pointer"
+                className="text-xs text-neutral-600 dark:text-neutral-400 cursor-pointer"
               >
                 {showPassword ? "Ocultar" : "Mostrar"}
               </button>

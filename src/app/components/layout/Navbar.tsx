@@ -45,7 +45,7 @@ export const Navbar = () => {
           </DropdownMenu>
         </Dropdown>
       </article>
-      <span>Sistema de gestión de inventario</span>
+      <span>IMS | Sistema de gestión de inventario</span>
     </nav>
   );
 };
