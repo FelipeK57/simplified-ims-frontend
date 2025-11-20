@@ -18,8 +18,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="w-full h-16 border-b border-neutral-200 flex justify-between items-center px-4">
-      <span>Bienvenido a tu IMS</span>
+    <nav className="w-full h-16 border-b border-neutral-200 dark:border-neutral-800 flex justify-between items-center px-4">
       <article className="flex gap-4 items-center">
         <Dropdown>
           <DropdownTrigger>
@@ -46,6 +45,7 @@ export const Navbar = () => {
           </DropdownMenu>
         </Dropdown>
       </article>
+      <span>Sistema de gestión de inventario</span>
     </nav>
   );
 };

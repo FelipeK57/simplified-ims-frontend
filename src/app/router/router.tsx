@@ -3,6 +3,8 @@ import { MainLayout } from "../components/layout/MainLayout";
 import { Products } from "../features/products/pages/Products";
 import { Register } from "../features/auth/pages/Register";
 import { Login } from "../features/auth/pages/Login";
+import { NotFoundPage } from "../lib/NotFoundPage";
+import { ProtectedRoute } from "../lib/ProtectedRoute";
 
 // Routes
 
@@ -12,9 +14,17 @@ export const RouterProvider = () => {
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<MainLayout />}>
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <MainLayout />
+            </ProtectedRoute>
+          }
+        >
           <Route index element={<Products />} />
         </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
