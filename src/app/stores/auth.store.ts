@@ -1,11 +1,17 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { jwtDecode } from "jwt-decode";
-import type { User } from "../features/users/types";
+
+interface Payload {
+  name: string;
+  role: string;
+  storeName: string;
+  email: string;
+}
 
 interface AuthState {
   token: string | null;
-  user: User | null;
+  payload: Payload | null;
   setToken: (token: string) => void;
   clearAuth: () => void;
 }
@@ -14,12 +20,20 @@ const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
       token: null,
-      user: null,
+      payload: null,
       setToken: (token: string) => {
-        const decoded: User = jwtDecode(token);
-        set({ token, user: decoded });
+        const decoded: Payload = jwtDecode(token);
+        set({
+          token,
+          payload: {
+            name: decoded.name,
+            role: decoded.role,
+            storeName: decoded.storeName,
+            email: decoded.email,
+          },
+        });
       },
-      clearAuth: () => set({ token: null, user: null }),
+      clearAuth: () => set({ token: null, payload: null }),
     }),
     {
       name: "auth-storage",

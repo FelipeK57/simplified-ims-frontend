@@ -3,5 +3,9 @@ export interface Product {
   name: string;
   code: string;
   description: string;
-  userId: number;
+  price: number;
+  cost: number;
+  stock: number;
+  category: string;
+  storeId: number;
 }

@@ -12,6 +12,8 @@ import {
   Form,
   Textarea,
   addToast,
+  Select,
+  SelectItem,
 } from "@heroui/react";
 
 interface EditProductModalProps {
@@ -60,36 +62,82 @@ export const EditProductModal = ({
   };
 
   return (
-    <Modal scrollBehavior="inside" isOpen={isOpen} onOpenChange={setOpen}>
+    <Modal scrollBehavior="inside" isOpen={isOpen} onOpenChange={setOpen} size="xl">
       <Form onSubmit={handleSubmit}>
         <ModalContent>
           {(onClose) => (
             <>
               <ModalHeader>Editar datos del producto</ModalHeader>
-              <ModalBody>
+              <ModalBody className="grid grid-cols-2 gap-4">
                 <Input
-                  defaultValue={product.name}
+                  name="name"
                   label="Nombre"
                   labelPlacement="outside"
                   isRequired
-                  name="name"
-                  placeholder="Ingrese el nombre del proveedor"
+                  placeholder="Nombre del producto"
+                  defaultValue={product.name}
                 />
                 <Input
-                  defaultValue={product.code}
+                  name="code"
                   label="Código"
                   labelPlacement="outside"
                   isRequired
-                  name="code"
-                  placeholder="Ingrese el código del producto"
+                  placeholder="Código del producto"
+                  defaultValue={product.code}
                 />
+                <Input
+                  name="price"
+                  label="Precio"
+                  labelPlacement="outside"
+                  type="number"
+                  min={1}
+                  isRequired
+                  placeholder="Precio del producto"
+                  defaultValue={product.price.toString()}
+                />
+                <Input
+                  name="cost"
+                  label="Costo"
+                  labelPlacement="outside"
+                  type="number"
+                  min={0}
+                  placeholder="Costo del producto"
+                  defaultValue={product.cost.toString()}
+                />
+                <Input
+                  name="stock"
+                  label="Stock"
+                  labelPlacement="outside"
+                  type="number"
+                  min={0}
+                  placeholder="Cantidad en stock"
+                  defaultValue={product.stock.toString()}
+                />
+                <Select
+                  label="Categoría"
+                  labelPlacement="outside"
+                  placeholder="Selecciona una categoría"
+                  name="category"
+                  isRequired
+                  defaultSelectedKeys={[product.category]}
+                >
+                  <SelectItem key={"Electrónica"}>Electrónica</SelectItem>
+                  <SelectItem key={"Ropa"}>Ropa</SelectItem>
+                  <SelectItem key={"Libros"}>Libros</SelectItem>
+                  <SelectItem key={"Muebles"}>Muebles</SelectItem>
+                  <SelectItem key={"Juguetes"}>Juguetes</SelectItem>
+                  <SelectItem key={"Belleza"}>Belleza</SelectItem>
+                  <SelectItem key={"Deportes"}>Deportes</SelectItem>
+                  <SelectItem key={"Automotriz"}>Automotriz</SelectItem>
+                  <SelectItem key={"Otro"}>Otro</SelectItem>
+                </Select>
                 <Textarea
-                  defaultValue={product.description}
+                  className="col-span-2"
+                  name="description"
                   label="Descripción"
                   labelPlacement="outside"
-                  isRequired
-                  name="description"
-                  placeholder="Ingrese la descripción del producto"
+                  placeholder="Descripción del producto"
+                  defaultValue={product.description}
                 />
               </ModalBody>
               <ModalFooter>

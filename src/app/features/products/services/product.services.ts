@@ -2,9 +2,17 @@ import { api } from "@/app/lib/api-client";
 import { addToast } from "@heroui/react";
 import axios from "axios";
 
-export const getProducts = async (userId: number) => {
+export const getProducts = async () => {
+  const storage = localStorage.getItem("auth-storage");
+  if (storage) {
+    const parsed = JSON.parse(storage);
+    api.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${parsed.state.token}`;
+  }
+
   try {
-    const response = await api.get(`/products?userId=${userId}`);
+    const response = await api.get(`/products`);
     return response.data;
   } catch (error) {
     console.error("Error fetching products:", error);
@@ -13,6 +21,14 @@ export const getProducts = async (userId: number) => {
 };
 
 export const createProduct = async (productData: any) => {
+  const storage = localStorage.getItem("auth-storage");
+  if (storage) {
+    const parsed = JSON.parse(storage);
+    api.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${parsed.state.token}`;
+  }
+
   try {
     const response = await api.post("/products", productData);
     return response.data;

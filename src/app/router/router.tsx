@@ -22,9 +22,10 @@ export const RouterProvider = () => {
             </ProtectedRoute>
           }
         >
-          <Route index element={<Products />} />
+          <Route index element={<div>Dashboard</div>} />
+          <Route path="products" element={<Products />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
-        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

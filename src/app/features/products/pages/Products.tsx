@@ -13,10 +13,8 @@ import type { Product } from "../types";
 import { NewProductModal } from "../components/NewProductModal";
 import { useEffect, useState } from "react";
 import { EditProductModal } from "../components/EditProductModal";
-import useAuthStore from "@/app/stores/auth.store";
 export const Products = () => {
-  const { user } = useAuthStore();
-  const { data: products, isLoading } = useGetProducts(user?.id as number);
+  const { data: products, isLoading } = useGetProducts();
 
   // Edit states
   const [productToEdit, setProductToEdit] = useState<Product | null>(null);
@@ -53,12 +51,14 @@ export const Products = () => {
         <TableHeader>
           <TableColumn>CÓDIGO</TableColumn>
           <TableColumn>NOMBRE</TableColumn>
-          <TableColumn>DESCRIPCIÓN</TableColumn>
+          <TableColumn>CATEGORÍA</TableColumn>
+          <TableColumn>PRECIO</TableColumn>
+          <TableColumn>STOCK</TableColumn>
         </TableHeader>
         {isLoading ? (
           <TableBody>
             <TableRow>
-              <TableCell colSpan={3} className="text-center">
+              <TableCell colSpan={5} className="text-center">
                 <span className="animate-pulse">Cargando productos...</span>
               </TableCell>
             </TableRow>
@@ -75,7 +75,9 @@ export const Products = () => {
               >
                 <TableCell>{product.code}</TableCell>
                 <TableCell>{product.name}</TableCell>
-                <TableCell>{product.description}</TableCell>
+                <TableCell>{product.category}</TableCell>
+                <TableCell>{product.price.toLocaleString("es-CO", { style: "currency", currency: "COP" })}</TableCell>
+                <TableCell>{product.stock}</TableCell>
               </TableRow>
             ))}
           </TableBody>
