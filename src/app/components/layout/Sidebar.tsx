@@ -3,17 +3,17 @@ import {
   Home,
   FileBox,
   ArrowUpDown,
-  ShoppingCart,
   Users2,
   BarChart3,
   Settings,
+  ShoppingBag,
 } from "lucide-react";
 import { Link } from "react-router";
 
 export const Sidebar = () => {
   const { theme } = useThemeStore();
   return (
-    <aside className="flex flex-col w-72 border-r border-neutral-200 dark:border-neutral-800">
+    <aside className="flex flex-col w-96 border-r border-neutral-200 dark:border-neutral-800">
       <div className="flex items-center h-16 p-4 border-b border-neutral-200 dark:border-neutral-800">
         <img
           src={theme === "dark" ? "/sitcols-light-ims-logo.svg" : "/sitcols-dark-ims-logo.svg"}
@@ -71,24 +71,19 @@ export const modules = [
         ],
       },
       {
-        name: "Entradas",
-        path: "entries",
-        icon: <ArrowUpDown className="size-5 rotate-180" />,
-      },
-      {
-        name: "Salidas",
-        path: "sales",
+        name: "Movimientos",
+        path: "movements",
         icon: <ArrowUpDown className="size-5" />,
-      },
+      }
     ],
   },
   {
     name: "Ventas",
     routes: [
       {
-        name: "Registrar venta",
-        path: "sales/register",
-        icon: <ShoppingCart className="size-5" />,
+        name: "Ordenes",
+        path: "orders",
+        icon: <ShoppingBag className="size-5" />,
       },
       {
         name: "Clientes",
