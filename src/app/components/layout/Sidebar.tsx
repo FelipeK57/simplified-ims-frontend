@@ -24,7 +24,7 @@ export const Sidebar = () => {
       <nav className="space-y-2 p-4">
         {modules.map((module) => (
           <div key={module.name}>
-            <h3 className="text-xs font-medium uppercase mb-1">
+            <h3 className="text-xs font-medium uppercase mb-1 text-neutral-500 dark:text-neutral-400">
               {module.name}
             </h3>
             <ul className="flex flex-col gap-1">

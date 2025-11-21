@@ -22,7 +22,7 @@ export const Navbar = () => {
   return (
     <nav className="w-full h-16 border-b border-neutral-200 dark:border-neutral-800 flex justify-between items-center px-4">
       <span>
-        Panel de: {payload?.storeName || "Nombre de la tienda"}
+        Panel de {payload?.storeName || "Nombre de la tienda"}
       </span>
       <article className="flex gap-4 items-center">
         <Dropdown>
