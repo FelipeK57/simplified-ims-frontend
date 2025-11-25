@@ -17,6 +17,7 @@ export const REASONS_IN = [
   { id: "TRANSFER_IN", label: "Transferencia desde otra tienda" },
   { id: "ADJUSTMENT_IN", label: "Ajuste Positivo" },
   { id: "CORRECTION_IN", label: "Corrección de Inventario" },
+  { id: "OTHER_IN", label: "Otro" },
 ];
 
 export const REASONS_OUT = [
@@ -26,4 +27,5 @@ export const REASONS_OUT = [
   { id: "TRANSFER_OUT", label: "Transferencia a otra tienda" },
   { id: "ADJUSTMENT_OUT", label: "Ajuste Negativo" },
   { id: "CORRECTION_OUT", label: "Corrección de Inventario" },
+  { id: "OTHER_OUT", label: "Otro" },
 ];

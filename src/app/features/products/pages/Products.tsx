@@ -5,7 +5,6 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  Input,
   // Pagination,
 } from "@heroui/react";
 import { useGetProducts } from "../hooks/useGetProducts";

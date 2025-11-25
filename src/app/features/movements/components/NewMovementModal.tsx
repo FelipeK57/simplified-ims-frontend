@@ -121,6 +121,8 @@ export const NewMovementModal = () => {
                     label="Motivo"
                     labelPlacement="outside"
                     placeholder="Selecciona el motivo"
+                    isRequired
+                    disallowEmptySelection
                   >
                     {type === "IN"
                       ? REASONS_IN.map((reason) => (

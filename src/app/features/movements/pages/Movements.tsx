@@ -1,5 +1,4 @@
 import {
-  Input,
   Table,
   TableBody,
   TableCell,
@@ -60,7 +59,7 @@ export const Movements = () => {
               <TableRow key={movement.id}>
                 <TableCell
                   className={`${
-                    movement.type === "IN" ? "text-green-600" : "text-red-600"
+                    movement.type === "IN" ? "text-green-700" : "text-red-700"
                   } font-medium`}
                 >
                   {movement.type === "IN" ? "Entrada" : "Salida"}
