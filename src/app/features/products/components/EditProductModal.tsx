@@ -62,7 +62,7 @@ export const EditProductModal = ({
   };
 
   return (
-    <Modal scrollBehavior="inside" isOpen={isOpen} onOpenChange={setOpen} size="xl">
+    <Modal scrollBehavior="inside" isOpen={isOpen} onOpenChange={setOpen} size="2xl">
       <Form onSubmit={handleSubmit}>
         <ModalContent>
           {(onClose) => (
@@ -105,6 +105,7 @@ export const EditProductModal = ({
                   defaultValue={product.cost.toString()}
                 />
                 <Input
+                  isReadOnly
                   name="stock"
                   label="Stock"
                   labelPlacement="outside"

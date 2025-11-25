@@ -1,12 +1,13 @@
 import { useThemeStore } from "@/app/stores/theme.store";
 import {
-  Home,
+  // Home,
   FileBox,
   ArrowUpDown,
   Users2,
-  BarChart3,
-  Settings,
+  // BarChart3,
+  // Settings,
   ShoppingBag,
+  List,
 } from "lucide-react";
 import { Link } from "react-router";
 
@@ -16,7 +17,11 @@ export const Sidebar = () => {
     <aside className="flex flex-col w-96 border-r border-neutral-200 dark:border-neutral-800">
       <div className="flex items-center h-16 p-4 border-b border-neutral-200 dark:border-neutral-800">
         <img
-          src={theme === "dark" ? "/sitcols-light-ims-logo.svg" : "/sitcols-dark-ims-logo.svg"}
+          src={
+            theme === "dark"
+              ? "/sitcols-light-ims-logo.svg"
+              : "/sitcols-dark-ims-logo.svg"
+          }
           alt="Sitcols IMS Logo"
           className="w-32"
         />
@@ -48,10 +53,10 @@ export const Sidebar = () => {
 };
 
 export const modules = [
-  {
-    name: "General",
-    routes: [{ name: "Inicio", path: "", icon: <Home className="size-5" /> }],
-  },
+  // {
+  //   name: "General",
+  //   routes: [{ name: "Inicio", path: "", icon: <Home className="size-5" /> }],
+  // },
   {
     name: "Inventario",
     routes: [
@@ -74,7 +79,7 @@ export const modules = [
         name: "Movimientos",
         path: "movements",
         icon: <ArrowUpDown className="size-5" />,
-      }
+      },
     ],
   },
   {
@@ -92,24 +97,29 @@ export const modules = [
       },
     ],
   },
-  {
-    name: "Reportes",
-    routes: [
-      {
-        name: "Reportes generales",
-        path: "reports",
-        icon: <BarChart3 className="size-5" />,
-      },
-    ],
-  },
+  // {
+  //   name: "Reportes",
+  //   routes: [
+  //     {
+  //       name: "Reportes generales",
+  //       path: "reports",
+  //       icon: <BarChart3 className="size-5" />,
+  //     },
+  //   ],
+  // },
   {
     name: "Configuración",
     routes: [
+      // {
+      //   name: "Usuarios y roles",
+      //   path: "users",
+      //   icon: <Settings className="size-5" />,
+      // },
       {
-        name: "Usuarios y roles",
-        path: "users",
-        icon: <Settings className="size-5" />,
-      },
+        name: "Categorías",
+        path: "categories",
+        icon: <List className="size-5" />,
+      }
     ],
   },
 ];

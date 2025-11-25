@@ -36,11 +36,11 @@ export const Products = () => {
       <article className="flex justify-between items-center">
         <h1 className="text-xl font-semibold min-w-fit">Lista de productos</h1>
         <article className="flex w-full justify-end">
-          <Input
+          {/* <Input
             placeholder="Buscar productos..."
             aria-label="Buscador"
             className="w-full max-w-xs"
-          />
+          /> */}
           <NewProductModal />
         </article>
       </article>

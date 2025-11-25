@@ -5,6 +5,7 @@ import { Register } from "../features/auth/pages/Register";
 import { Login } from "../features/auth/pages/Login";
 import { NotFoundPage } from "../lib/NotFoundPage";
 import { ProtectedRoute } from "../lib/ProtectedRoute";
+import { Movements } from "../features/movements/pages/Movements";
 
 // Routes
 
@@ -24,6 +25,7 @@ export const RouterProvider = () => {
         >
           <Route index element={<div>Dashboard</div>} />
           <Route path="products" element={<Products />} />
+          <Route path="movements" element={<Movements />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

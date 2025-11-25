@@ -1,15 +1,10 @@
 import { api } from "@/app/lib/api-client";
+import { setupAuthHeader } from "@/app/lib/setupAuthHeader";
 import { addToast } from "@heroui/react";
 import axios from "axios";
 
 export const getProducts = async () => {
-  const storage = localStorage.getItem("auth-storage");
-  if (storage) {
-    const parsed = JSON.parse(storage);
-    api.defaults.headers.common[
-      "Authorization"
-    ] = `Bearer ${parsed.state.token}`;
-  }
+  setupAuthHeader();
 
   try {
     const response = await api.get(`/products`);
@@ -21,13 +16,7 @@ export const getProducts = async () => {
 };
 
 export const createProduct = async (productData: any) => {
-  const storage = localStorage.getItem("auth-storage");
-  if (storage) {
-    const parsed = JSON.parse(storage);
-    api.defaults.headers.common[
-      "Authorization"
-    ] = `Bearer ${parsed.state.token}`;
-  }
+  setupAuthHeader();
 
   try {
     const response = await api.post("/products", productData);
@@ -62,6 +51,18 @@ export const deleteProduct = async (productId: number) => {
     return response.data;
   } catch (error) {
     console.error("Error deleting product:", error);
+    throw error;
+  }
+};
+
+export const getProductByCode = async (code: string) => {
+  setupAuthHeader();
+
+  try {
+    const response = await api.get(`/products/code/${code}`);
+    return response;
+  } catch (error) {
+    console.error("Error fetching product by ID:", error);
     throw error;
   }
 };

@@ -38,7 +38,7 @@ export const NewProductModal = () => {
       <Button color="primary" className="ml-4" onPress={onOpen}>
         Agregar producto
       </Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} size="xl">
+      <Modal scrollBehavior="inside" isOpen={isOpen} onOpenChange={onOpenChange} size="2xl">
         <Form onSubmit={handleSubmit}>
           <ModalContent>
             {(onClose) => (
