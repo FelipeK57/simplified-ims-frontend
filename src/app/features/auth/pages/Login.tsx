@@ -24,7 +24,7 @@ export const Login = () => {
           color: "success",
           timeout: 3000,
         });
-        navigate("/");
+        navigate("/products");
       },
     });
   };

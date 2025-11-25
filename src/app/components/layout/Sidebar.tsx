@@ -14,7 +14,7 @@ import { Link } from "react-router";
 export const Sidebar = () => {
   const { theme } = useThemeStore();
   return (
-    <aside className="flex flex-col w-96 border-r border-neutral-200 dark:border-neutral-800">
+    <aside className="flex flex-col w-72 border-r border-neutral-200 dark:border-neutral-800">
       <div className="flex items-center h-16 p-4 border-b border-neutral-200 dark:border-neutral-800">
         <img
           src={

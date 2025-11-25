@@ -6,6 +6,8 @@ import { Login } from "../features/auth/pages/Login";
 import { NotFoundPage } from "../lib/NotFoundPage";
 import { ProtectedRoute } from "../lib/ProtectedRoute";
 import { Movements } from "../features/movements/pages/Movements";
+import { Orders } from "../features/orders/pages/Orders";
+import { CreateOrderPOS } from "../features/orders/pages/CreateOrderPOS";
 
 // Routes
 
@@ -26,6 +28,8 @@ export const RouterProvider = () => {
           <Route index element={<div>Dashboard</div>} />
           <Route path="products" element={<Products />} />
           <Route path="movements" element={<Movements />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="orders/create-pos" element={<CreateOrderPOS />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

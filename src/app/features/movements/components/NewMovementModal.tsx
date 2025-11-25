@@ -54,6 +54,14 @@ export const NewMovementModal = () => {
   }, [debouncedCode]);
 
   const handleSelectProduct = (product: Product) => {
+    if (product.stock === 0 && type === "OUT") {
+      addToast({
+        title: "El producto no tiene stock disponible para salida.",
+        color: "danger",
+        timeout: 3000,
+      });
+      return;
+    }
     setFindedProduct(null);
     setSelectedProduct(product);
     setCode("");
@@ -170,15 +178,7 @@ export const NewMovementModal = () => {
                         {findedProduct.name} - {findedProduct.code}
                       </CardHeader>
                       <CardBody className="text-sm">
-                        <p>Descripción: {findedProduct.description}</p>
-                        <p>
-                          Precio:
-                          {findedProduct.price.toLocaleString("es-CO", {
-                            style: "currency",
-                            currency: "COP",
-                          })}
-                        </p>
-                        <p>Stock disponible: {findedProduct.stock}</p>
+                        <p>Stock: {findedProduct.stock}</p>
                       </CardBody>
                       <CardFooter>
                         <Button
@@ -213,15 +213,7 @@ export const NewMovementModal = () => {
                         {selectedProduct.code}
                       </CardHeader>
                       <CardBody className="text-sm">
-                        <p>Descripción: {selectedProduct.description}</p>
-                        <p>
-                          Precio:
-                          {selectedProduct.price.toLocaleString("es-CO", {
-                            style: "currency",
-                            currency: "COP",
-                          })}
-                        </p>
-                        <p>Stock disponible: {selectedProduct.stock}</p>
+                        <p>Stock: {selectedProduct.stock}</p>
                       </CardBody>
                       <CardFooter>
                         <Button

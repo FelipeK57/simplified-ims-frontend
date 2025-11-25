@@ -59,8 +59,8 @@ export const Movements = () => {
               <TableRow key={movement.id}>
                 <TableCell
                   className={`${
-                    movement.type === "IN" ? "text-green-700" : "text-red-700"
-                  } font-medium`}
+                    movement.type === "IN" ? "text-success" : "text-danger"
+                  }`}
                 >
                   {movement.type === "IN" ? "Entrada" : "Salida"}
                 </TableCell>
