@@ -8,6 +8,7 @@ import { ProtectedRoute } from "../lib/ProtectedRoute";
 import { Movements } from "../features/movements/pages/Movements";
 import { Orders } from "../features/orders/pages/Orders";
 import { CreateOrderPOS } from "../features/orders/pages/CreateOrderPOS";
+import { Categories } from "../features/categories/pages/Categories";
 
 // Routes
 
@@ -30,6 +31,7 @@ export const RouterProvider = () => {
           <Route path="movements" element={<Movements />} />
           <Route path="orders" element={<Orders />} />
           <Route path="orders/create-pos" element={<CreateOrderPOS />} />
+          <Route path="categories" element={<Categories />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
