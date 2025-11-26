@@ -46,7 +46,7 @@ export const Categories = () => {
             {categories?.map((category: Category) => (
               <TableRow key={category.id}>
                 <TableCell>{category.name}</TableCell>
-                <TableCell>--</TableCell>
+                <TableCell>{category.description || "-"}</TableCell>
               </TableRow>
             ))}
           </TableBody>

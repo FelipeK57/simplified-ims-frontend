@@ -11,10 +11,10 @@ export const getCategories = async () => {
   }
 };
 
-export const createCategory = async (name: string) => {
+export const createCategory = async (data: any) => {
   setupAuthHeader();
   try {
-    const response = await api.post("/categories", { name });
+    const response = await api.post("/categories", data);
     return response.data;
   } catch (error) {
     throw error;

@@ -14,10 +14,13 @@ import {
   SelectItem,
 } from "@heroui/react";
 import { useCreateProduct } from "../hooks/useCreateProduct";
+import { useGetCategories } from "../../categories/hooks/useGetCategories";
+import type { Category } from "../../categories/types";
 
 export const NewProductModal = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const createProductMutation = useCreateProduct();
+  const { data: categories } = useGetCategories();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,7 +41,12 @@ export const NewProductModal = () => {
       <Button color="primary" className="ml-4" onPress={onOpen}>
         Agregar producto
       </Button>
-      <Modal scrollBehavior="inside" isOpen={isOpen} onOpenChange={onOpenChange} size="2xl">
+      <Modal
+        scrollBehavior="inside"
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        size="2xl"
+      >
         <Form onSubmit={handleSubmit}>
           <ModalContent>
             {(onClose) => (
@@ -90,18 +98,12 @@ export const NewProductModal = () => {
                     label="Categoría"
                     labelPlacement="outside"
                     placeholder="Selecciona una categoría"
-                    name="category"
+                    name="categoryId"
                     isRequired
                   >
-                    <SelectItem key={"Electrónica"}>Electrónica</SelectItem>
-                    <SelectItem key={"Ropa"}>Ropa</SelectItem>
-                    <SelectItem key={"Libros"}>Libros</SelectItem>
-                    <SelectItem key={"Muebles"}>Muebles</SelectItem>
-                    <SelectItem key={"Juguetes"}>Juguetes</SelectItem>
-                    <SelectItem key={"Belleza"}>Belleza</SelectItem>
-                    <SelectItem key={"Deportes"}>Deportes</SelectItem>
-                    <SelectItem key={"Automotriz"}>Automotriz</SelectItem>
-                    <SelectItem key={"Otro"}>Otro</SelectItem>
+                    {categories?.map((category: Category) => (
+                      <SelectItem key={category.id}>{category.name}</SelectItem>
+                    ))}
                   </Select>
                   <Textarea
                     className="col-span-2"

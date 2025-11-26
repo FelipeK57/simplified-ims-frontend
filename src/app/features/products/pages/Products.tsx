@@ -74,7 +74,7 @@ export const Products = () => {
               >
                 <TableCell>{product.code}</TableCell>
                 <TableCell>{product.name}</TableCell>
-                <TableCell>{product.category}</TableCell>
+                <TableCell>{product.category.name}</TableCell>
                 <TableCell>{product.price.toLocaleString("es-CO", { style: "currency", currency: "COP" })}</TableCell>
                 <TableCell>{product.stock}</TableCell>
               </TableRow>
